@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cafebreton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+      body {
+          text-align: center;
+          padding-top: 100px;
+          margin: auto;
+          color: #000000;
+          font-family: "Comic Neue", cursive;
+          text-align: center;
+      }
+
+      .pouet {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+      }
+
+      h1 {
+          font-size: 3em;
+          font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pouet">
+      <h1 id="response">Oui</h1>
+      <p>L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
+    </div>
+  </body>
+
+  <script>
+  // do not modify the code bellow a script will update it
+  const date = new Date();
+
+  const openHours = { 0: [[0, 60]],1: [],2: [[630, 840], [1080, 1440]],3: [[0, 0], [630, 840], [1080, 1440]],4: [[0, 0], [630, 840], [1080, 1440]],5: [[0, 0], [630, 840], [1080, 1440]],6: [[0, 60], [630, 840], [1080, 1440]] };
+
+  const dateOfTheWeek = date.getDay();
+
+  const time = date.getHours() * 60 + date.getMinutes();
+  const text = document.getElementById('response');
+  const picture = document.getElementById('picture');
+
+  const isOpen = openHours[dateOfTheWeek].some(range => time >= range[0] && time <= range[1]);
+
+  // You can modify the code bellow
+
+  if (isOpen) {
+    text.textContent = 'Oui';
+  } else {
+    text.textContent = 'Non';
+  }
+</script>
+
+</html>
